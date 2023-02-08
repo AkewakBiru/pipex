@@ -6,7 +6,7 @@
 /*   By: abiru <abiru@student.42abudhabi.ae>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 19:45:51 by abiru             #+#    #+#             */
-/*   Updated: 2023/01/01 16:37:29 by abiru            ###   ########.fr       */
+/*   Updated: 2023/02/08 23:39:50 by abiru            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ char	*get_envp(char **envp)
 		path = ft_split(envp[i], '=');
 		if (ft_strncmp(path[0], "PATH", ft_strlen(path[0])) == 0)
 		{
-			tmp = ft_strdup(path[1]);
+			if (path[1])
+				tmp = ft_strdup(path[1]);
 			free_arr(path);
 			return (tmp);
 		}
